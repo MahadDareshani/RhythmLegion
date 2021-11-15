@@ -1,0 +1,36 @@
+[gd_resource type="SpriteFrames" load_steps=7 format=2]
+
+[sub_resource type="StreamTexture" id=4]
+flags = 4
+load_path = "res://.import/arrow_button_left.png-d3c7f354d185c3b466ff62409e512cca.stex"
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = SubResource( 4 )
+region = Rect2( 160, 0, 160, 160 )
+
+[sub_resource type="StreamTexture" id=5]
+flags = 4
+load_path = "res://.import/arrow_button_up.png-4cac528d9ec9cc7834ee6599de94ce76.stex"
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = SubResource( 5 )
+region = Rect2( 160, 0, 160, 160 )
+
+[sub_resource type="StreamTexture" id=6]
+flags = 4
+load_path = "res://.import/arrow_button_right.png-14f413b60387bb4f757a02daad3a88a0.stex"
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = SubResource( 6 )
+region = Rect2( 160, 0, 160, 160 )
+
+[resource]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
