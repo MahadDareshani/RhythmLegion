@@ -103,12 +103,13 @@ func arrow_inputer(event):
 
 func check_arrow_pos():
 	if current_note != null:
-		if perfect:
-			current_note.destroy(3)
-		elif good:
-			current_note.destroy(2)
-		elif okay:
-			current_note.destroy(1)
+		if is_instance_valid(current_note):
+			if perfect:
+				current_note.destroy(3)
+			elif good:
+				current_note.destroy(2)
+			elif okay:
+				current_note.destroy(1)
 		_reset()
 
 func init_input():

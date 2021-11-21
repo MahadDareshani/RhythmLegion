@@ -36,9 +36,8 @@ func _ready():
 	$Conductor.sec_per_beat = (15.0 / $Conductor.bpm)
 	sec_per_beat = $Conductor.sec_per_beat
 	
+	#$Conductor.play_from_beat(94 * 16, $Conductor.offset + 16)
 	$Conductor.play_with_beat_offset($Conductor.offset + 16)
-	#get_parent().get_node("Conductor").play_from_beat(55 * 16, offset + 16)
-
 
 func _on_Conductor_measure(position):
 	if position == 1:
@@ -105,17 +104,32 @@ func end_game():
 	get_tree().reload_current_scene()
 
 func _spawn_notes(to_spawn):
-	if to_spawn > 0:
-		lane = randi() % 3
-		
-		P1_instance = note.instance()
-		$Notes.add_child(P1_instance)
-		P1_instance.P1_initialize(lane)
-	if to_spawn > 1:
-		while rand == lane:
-			rand = randi() % 3
-		lane = rand
-		
-		P1_instance = note.instance()
-		P1_instance.P1_initialize(lane)
-		$Notes.add_child(P1_instance)
+	if typeof(to_spawn) == TYPE_INT:
+		if to_spawn > 0:
+			lane = randi() % 3
+			
+			P1_instance = note.instance()
+			$Notes.add_child(P1_instance)
+			P1_instance.P1_initialize(lane)
+		if to_spawn > 1:
+			while rand == lane:
+				rand = randi() % 3
+			lane = rand
+			
+			P1_instance = note.instance()
+			P1_instance.P1_initialize(lane)
+			$Notes.add_child(P1_instance)
+	else:
+		if typeof(to_spawn) == TYPE_STRING:
+			if to_spawn.substr(0, 1) == "1":
+				_spawn_a_note(0)
+			if to_spawn.substr(1, 1) == "1":
+				_spawn_a_note(1)
+			if to_spawn.substr(2, 2) == "1":
+				_spawn_a_note(2)
+			
+
+func _spawn_a_note(loc):
+	P1_instance = note.instance()
+	$Notes.add_child(P1_instance)
+	P1_instance.P1_initialize(loc)

@@ -43,10 +43,10 @@ func set_beat(beat_num ,beatA,beatB,beatC,beatD):
 
 func play_song():
 	if temp_position > 0:
-		set_beat(1, 1, 0, 0, 0)
-		set_beat(2, 1, 0, 0, 0)
-		set_beat(3, 1, 0, 0, 0)
-		set_beat(4, 1, 0, 0, 0)
+		set_beat(1, "000", 0, 0, 0)
+		set_beat(2, "000", 0, 0, 0)
+		set_beat(3, "000", 0, 0, 0)
+		set_beat(4, "000", 0, 0, 0)
 	if temp_position > bar(end_beat):
 		set_beat(1, 0, 0, 0, 0)
 		set_beat(2, 0, 0, 0, 0)

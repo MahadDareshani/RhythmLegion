@@ -49,6 +49,7 @@ func closest_beat(nth):
 	return Vector2(closest, time_off_beat)
 
 func play_from_beat(beat, offset):
+	yield(get_tree().create_timer(sec_per_beat), "timeout")
 	play()
 	seek(beat * sec_per_beat)
 	beats_before_start = offset

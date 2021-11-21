@@ -1,7 +1,7 @@
 extends Area2D
 
 # FIND DISTANCE
-const TARGET_Y = 600
+const TARGET_Y = 584
 const SPAWN_Y = -64
 const DIST_TO_TARGET = TARGET_Y - SPAWN_Y
 
@@ -17,7 +17,7 @@ var hit = false
 func _physics_process(delta):
 	if !hit:
 		position.y += speed * delta
-		if position.y > 800:
+		if position.y > 648:
 			queue_free()
 	else:
 		$Node2D.position.y -= speed * delta
